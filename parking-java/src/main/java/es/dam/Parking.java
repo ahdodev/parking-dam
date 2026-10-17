@@ -41,7 +41,14 @@ public class Parking {
                     break;
 
                 case 2:
-                    System.out.println("Calcular tarifa (pendiente)");
+                    int horasTarifa = leerEnteroPositivo(scanner, "Horas para calcular la tarifa: ");
+                    float importe = calcularTarifa(horasTarifa, tarifaHora);
+
+                    totalCalculosTarifa++;
+                    importeTotalCalculado += importe;
+
+                    System.out.println("Importe: " + importe + " euros");
+                    System.out.println("TEMPORAL -> cálculos: " + totalCalculosTarifa + ", importe total: " + importeTotalCalculado);
                     break;
                 case 3:
                     System.out.println("Ver resumen (pendiente)");
@@ -96,6 +103,9 @@ public class Parking {
         }
 
         return horasOperacion;
+    }
+    public static float calcularTarifa(int horas, float tarifaHora) {
+        return horas * tarifaHora;
     }
 }
 
