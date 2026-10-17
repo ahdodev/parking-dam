@@ -17,7 +17,7 @@ public class Parking {
         int totalCalculosTarifa = 0;
         float importeTotalCalculado = 0f;
 
-        System.out.println("Introduce tu nombre: ");
+        System.out.print("Introduce tu nombre: ");
         String nombre = scanner.nextLine();
         System.out.println("Hola " + nombre);
 
@@ -30,36 +30,11 @@ public class Parking {
 
             switch (opcion) {
                 case 1:
-                    System.out.print("¿Cuántos vehículos quieres registrar? ");
-                    int cantidad = scanner.nextInt();
-                    scanner.nextLine();
+                    int cantidad = leerEnteroPositivo(scanner, "¿Cuántos vehículos quieres registrar? ");
+                    int horasOperacion = registrarVehiculos(scanner, cantidad);
 
-                    while (cantidad <= 0) {
-                        System.out.println("Debe ser un número positivo.");
-                        System.out.print("¿Cuántos vehículos quieres registrar? ");
-                        cantidad = scanner.nextInt();
-                        scanner.nextLine();
-                    }
-
-                    for (int i = 1; i <= cantidad; i++) {
-                        System.out.println("Vehículo " + i);
-                        System.out.print("Matrícula: ");
-                        String matricula = scanner.nextLine();
-
-                        System.out.print("Horas estacionadas: ");
-                        int horas = scanner.nextInt();
-                        scanner.nextLine();
-
-                        while (horas <= 0) {
-                            System.out.println("Las horas deben ser mayores que 0.");
-                            System.out.print("Horas estacionadas: ");
-                            horas = scanner.nextInt();
-                            scanner.nextLine();
-                        }
-
-                        totalVehiculos++;
-                        totalHorasRegistradas += horas;
-                    }
+                    totalVehiculos += cantidad;
+                    totalHorasRegistradas += horasOperacion;
 
                     System.out.println("Vehículos registrados: " + cantidad);
                     System.out.println("TEMPORAL -> vehículos: " + totalVehiculos + ", horas: " + totalHorasRegistradas);
@@ -89,8 +64,39 @@ public class Parking {
         System.out.println("2. Calcular tarifa");
         System.out.println("3. Ver resumen del día");
         System.out.println("4. Salir");
-        System.out.println("Elige una opción: ");
+        System.out.print("Elige una opción: ");
 
 
     }
+    public static int leerEnteroPositivo(Scanner scanner, String mensaje) {
+        System.out.print(mensaje);
+        int numero = scanner.nextInt();
+        scanner.nextLine();
+
+        while (numero <= 0) {
+            System.out.println("Debe ser un número positivo.");
+            System.out.print(mensaje);
+            numero = scanner.nextInt();
+            scanner.nextLine();
+        }
+
+        return numero;
+    }
+
+    public static int registrarVehiculos(Scanner scanner, int cantidad) {
+        int horasOperacion = 0;
+
+        for (int i = 1; i <= cantidad; i++) {
+            System.out.println("Vehículo " + i);
+            System.out.print("Matrícula: ");
+            String matricula = scanner.nextLine();
+
+            int horas = leerEnteroPositivo(scanner, "Horas estacionadas: ");
+            horasOperacion += horas;
+        }
+
+        return horasOperacion;
+    }
 }
+
+
