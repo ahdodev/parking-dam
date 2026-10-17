@@ -37,7 +37,6 @@ public class Parking {
                     totalHorasRegistradas += horasOperacion;
 
                     System.out.println("Vehículos registrados: " + cantidad);
-                    System.out.println("TEMPORAL -> vehículos: " + totalVehiculos + ", horas: " + totalHorasRegistradas);
                     break;
 
                 case 2:
@@ -48,10 +47,10 @@ public class Parking {
                     importeTotalCalculado += importe;
 
                     System.out.println("Importe: " + importe + " euros");
-                    System.out.println("TEMPORAL -> cálculos: " + totalCalculosTarifa + ", importe total: " + importeTotalCalculado);
                     break;
                 case 3:
-                    System.out.println("Ver resumen (pendiente)");
+                    mostrarResumen(nombre, totalVehiculos, totalHorasRegistradas,
+                            totalCalculosTarifa, importeTotalCalculado);
                     break;
                 case 4:
                     System.out.println("Gracias por utilizar PARKING DAM-PRO");
@@ -106,6 +105,16 @@ public class Parking {
     }
     public static float calcularTarifa(int horas, float tarifaHora) {
         return horas * tarifaHora;
+    }
+    public static void mostrarResumen(String nombre, int totalVehiculos, int totalHorasRegistradas,
+                                      int totalCalculosTarifa, float importeTotalCalculado) {
+        System.out.println();
+        System.out.println("=== RESUMEN DEL DÍA ===");
+        System.out.println("Usuario: " + nombre);
+        System.out.println("Vehículos registrados: " + totalVehiculos);
+        System.out.println("Horas registradas: " + totalHorasRegistradas);
+        System.out.println("Cálculos de tarifas: " + totalCalculosTarifa);
+        System.out.println("Importe total calculado: " + importeTotalCalculado + " euros");
     }
 }
 
