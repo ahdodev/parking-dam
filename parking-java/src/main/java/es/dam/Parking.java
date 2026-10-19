@@ -64,6 +64,9 @@ public class Parking {
         scanner.close();
     }
 
+    /**
+     * Enseña al usuario el menú con las 4 opciones.
+     */
     public static void mostrarMenu() {
         System.out.println("=== PARKING DAM PRO ===");
         System.out.println("1. Registrar vehiculo");
@@ -74,6 +77,14 @@ public class Parking {
 
 
     }
+
+    /**
+     * Pide un numero entero y no deja seguir hasta que sea mayor que 0
+     * Si pones 0 o un negativo, avisa al usuario y lo vuelve a pedir
+     * @param scanner Para leer lo que escribe el usuario.
+     * @param mensaje La pregunta que se le enseña al usuario
+     * @return con esto ya asegura que el número es positivo.
+     */
     public static int leerEnteroPositivo(Scanner scanner, String mensaje) {
         System.out.print(mensaje);
         int numero = scanner.nextInt();
@@ -89,6 +100,12 @@ public class Parking {
         return numero;
     }
 
+    /**
+     * Pide la matrícula y las horas de cada vehículo con un for
+     * @param scanner Para leer lo que escribe el usuario
+     * @param cantidad Cuandtos vehículos hay que registrar
+     * @return Esto da el total de horas de los vehículos registrados esta vez
+     */
     public static int registrarVehiculos(Scanner scanner, int cantidad) {
         int horasOperacion = 0;
 
@@ -103,9 +120,25 @@ public class Parking {
 
         return horasOperacion;
     }
+
+    /**
+     * Calcula lo que hay qe pagar multiplicando las horas por el precio de la hora
+     * @param horas Las horas en las que ha estado aparcado
+     * @param tarifaHora  Lo que cuesta cada hora (1,50€)
+     * @return  el importe a pagar
+     */
     public static float calcularTarifa(int horas, float tarifaHora) {
         return horas * tarifaHora;
     }
+
+    /**
+     * Enseña el resumén de todo
+     * @param nombre El nombre del usuario
+     * @param totalVehiculos Cuantos vehículos se registran
+     * @param totalHorasRegistradas La suma de todas las horas registradas
+     * @param totalCalculosTarifa Cuantas tarifas se han calculado
+     * @param importeTotalCalculado El dinero total de todas las tarifas
+     */
     public static void mostrarResumen(String nombre, int totalVehiculos, int totalHorasRegistradas,
                                       int totalCalculosTarifa, float importeTotalCalculado) {
         System.out.println();
