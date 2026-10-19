@@ -21,37 +21,36 @@ Antes de programar nada hice seis diagramas de flujo en draw.io, uno para cada p
 
 Es lo primero que pasa: se crea el Scanner, se ponen los totales a 0 y se pide el nombre.
 
-![Diagrama 1: inicio](diagramas/01_inicio.png)
+<img src="diagramas/01_inicio.drawio.png" alt="Diagrama1: inicio" width="200">
 
 ### 2.2. Menú
 
 El menú se repite con un do-while hasta que eliges la 4. Con una cadena de rombos se mira qué opción has elegido y se va a su diagrama.
 
-![Diagrama 2: menú](diagramas/02_menu.png)
+<img src="diagramas/02_menu.drawio.png" alt="Diagrama2: menu" width="700">
 
 ### 2.3. Registro de vehículos
 
 Con un for se piden la matrícula y las horas de cada vehículo, y se comprueba que las horas sean mayores que 0.
 
-![Diagrama 3: registro](diagramas/03_registro.png)
+<img src="diagramas/03_registro.drawio.png" alt="Diagrama3: registro" width="700">
 
 ### 2.4. Tarifa
 
 Se piden las horas, se multiplican por 1,50 y se suma el importe al total.
 
-![Diagrama 4: tarifa](diagramas/04_tarifa.png)
+<img src="diagramas/04_tarifa.drawio.png" alt="Diagrama4: tarifa" width="400">
+
 
 ### 2.5. Resumen
 
 Se enseñan todos los totales que llevas en la sesión.
 
-![Diagrama 5: resumen](diagramas/05_resumen.png)
+<img src="diagramas/05_resumen.drawio.png" alt="Diagrama5: resumen" width="200">
 
 ### 2.6. Salida
 
-Sale la despedida, se cierra el Scanner y se acaba el programa.
-
-![Diagrama 6: salida](diagramas/06_salida.png)
+<img src="diagramas/06_salida.drawio.png" alt="Diagrama6: salida" width="200">
 
 ## 3. Implementación Java
 
